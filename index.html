@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dress game</title>
+    <link rel="icon" href="favicon-32x32.png">
+    <style>
+        .game{
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+        .dress_btns {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr); /* 4 أعمدة */
+            gap: 5px;
+            margin-top: 15px;
+        }
+        button {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        button img {
+            width: 90px;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+        button:hover{
+            transform: scale(0.90);
+        }
+        button:active{
+            transform: scale(0.75);
+        }
+        #hair{
+            position: absolute;
+            top: 34.5%; 
+            left: 50%; 
+            transform: translate(-50%,-50%);
+            width: 300px; 
+            pointer-events: none;
+        }
+        h1{
+            font-family: 'Courier New', Courier, monospace;
+            color: pink;
+        }
+        .heart1{
+            width : 150px;
+            position: absolute;
+            left: 50px;
+        }
+        .heart2{
+            width : 150px;
+            position: absolute;
+            right: 50px;
+        }
+        @media(max-width:650px) {
+            .dress_btns {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 أعمدة */
+            gap: 5px;
+            margin-top: 15px;
+        }
+            .game{
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+        }
+        #hair{
+            position: absolute;
+            top: 25.5%; 
+            left: 50%; 
+            transform: translate(-50%,-50%);
+            width: 300px; 
+            pointer-events: none;
+        }
+        .heart1{
+            width : 150px;
+            position: absolute;
+            top: 5%;
+            left: -10%;
+        }
+        .heart2{
+            width : 150px;
+            position: absolute;
+            top: 5%;
+            right: -6%;
+        }
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <div class="game">
+        <h1>My little doll 💗</h1>
+        <img src="heart (1).png" class="heart1">
+        <img src="heart (5).png" class="heart2">
+        <img src="1-basic dress.png" id="dress" width="300px">
+        <img src="" id="hair">
+        <div class="dress_btns">
+            <button onclick = "pink_basic()"><img src="10 - pink basic.png"></button>
+            <button onclick="green()"><img src="11 - green.png"></button>
+            <button onclick="pink()"><img src="12 - pink.png"></button>
+            <button onclick="purple()"><img src="13 - purple.png"></button>
+            <button onclick="blue()"><img src="14 - blue.png"></button>
+            <button onclick="diamond()"><img src="15 - diamond.png"></button>
+            <button onclick="gold()"><img src="16 - gold.png"></button>
+            <button onclick="red()"><img src="17 - red.png"></button>
+        </div>
+        <div class="hair_btns">
+            <button onclick="change_hair('18 - hair brown.png')"><img src="18 - hair brown.png" ></button>
+            <button onclick="change_hair('19 - hair blue.png')"><img src="19 - hair blue.png" ></button>
+            <button onclick="change_hair('20 - hair blond.png')"><img src="20 - hair blond.png" ></button>
+            <button onclick="change_hair('21 - hair light brown.png')"><img src="21 - hair light brown.png" ></button>
+            <button onclick="change_hair('22 - hair red.png')"><img src="22 - hair red.png" ></button>
+        </div>
+        
+    </div>
+    </center>
+    <script>
+        let dress = document.getElementById("dress");
+        let hair = document.getElementById("hair");
+        function pink_basic(){
+            dress.src = "7 - pink basic dress.png";
+        }
+        function green(){
+            dress.src = "4 - green dress.png";
+        }
+        function pink(){
+            dress.src = "9 - pink dress.png";
+        }
+        function purple(){
+            dress.src = "8 - purple dress.png";
+        }
+        function blue(){
+            dress.src = "5 - blue dress.png";
+        }
+        function diamond(){
+            dress.src = "2 - diamond dress.png";
+        }
+        function gold(){
+            dress.src = "3 - gold dress.png";
+        }
+        function red(){
+            dress.src = "6 - red dress.png";
+        }
+
+        function change_hair(value){
+            hair.src = value;
+        }
+        
+    </script>
+</body>
+</html>

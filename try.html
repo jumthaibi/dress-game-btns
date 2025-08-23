@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dress game</title>
+    <link rel="icon" href="favicon-32x32.png">
+    <style>
+        .game{
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .dress_btns{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 4 أعمدة */
+            gap: 5px;
+            margin-top: 15px;
+        }
+        button {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        button img {
+            width: 90px;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+        button:hover{
+            transform: scale(0.90);
+        }
+        button:active{
+            transform: scale(0.75);
+        }
+        #hair{
+            position: absolute;
+            top: 41%; 
+            left: 50%; 
+            transform: translate(-50%,-50%);
+            width: 300px; 
+            pointer-events: none;
+        }
+        h1{
+            font-family: 'Courier New', Courier, monospace;
+            color: pink;
+        }
+        .heart1{
+            width : 150px;
+            position: absolute;
+            left: 500px;
+        }
+        .heart2{
+            width : 150px;
+            position: absolute;
+            right: 500px;
+        }
+        @media(max-width:650px) {
+        #hair{
+            position: absolute;
+            top: 355px;
+        }
+        .heart1{
+            width : 150px;
+            position: absolute;
+            left: 89%;
+            top: 15%;
+            transform: translate(-20%,-20%);
+        }
+        .heart2{
+            width : 150px;
+            position: absolute;
+            right: 75%;
+            top: 15%;
+            transform: translate(-20%,-20%);
+        }
+        h1{
+            font-size: 28px;
+        }
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <div class="game">
+        <h1>My little doll 💗</h1>
+        <img src="heart (1).png" class="heart1">
+        <img src="heart (5).png" class="heart2">
+        <img src="1-basic dress.png" id="dress" width="300px">
+        <img src="" id="hair">
+        <div class="dress_btns">
+            <button id="prev_dress" onclick="prev_dress()"><img src="prev.png"></button>
+            <button id="next_dress" onclick="next_dress()"><img src="next.png"></button>
+            <button id="prev_hair" onclick="prev_hair()"><img src="prev.png"></button>
+            <button id="next_hair" onclick="next_hair()"><img src="next.png"></button>
+            
+        </div>
+        
+    </div>
+    </center>
+    <script>
+        let dress = document.getElementById("dress");
+        let hair = document.getElementById("hair");
+        const dresss = [
+            "7 - pink basic dress.png",
+            "4 - green dress.png",
+            "9 - pink dress.png",
+            "8 - purple dress.png",
+            "5 - blue dress.png",
+            "2 - diamond dress.png",
+            "3 - gold dress.png",
+            "6 - red dress.png"
+        ]
+        const hairs = [
+            "18 - hair brown.png",
+            "19 - hair blue.png",
+            "20 - hair blond.png",
+            "21 - hair light brown.png",
+            "22 - hair red.png"
+        ]
+        
+        let dress_indx = 0;
+        let hair_indx = 0;
+
+        function next_dress(){
+            dress_indx = (dress_indx + 1) % dresss.length;
+            dress.src = dresss[dress_indx];
+        }
+
+        function prev_dress(){
+            dress_indx = (dress_indx  - 1 + dresss.length )% dresss.length;
+            dress.src = dresss[dress_indx];
+        }
+
+        function next_hair(){
+            hair_indx = (hair_indx + 1) % hairs.length;
+            hair.src = hairs[hair_indx];
+        }
+
+        function prev_hair(){
+            hair_indx = (hair_indx - 1 + hairs.length)% hairs.length;
+            hair.src = hairs[hair_indx];
+        }
+
+    </script>
+</body>
+</html>
